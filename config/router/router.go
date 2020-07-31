@@ -21,5 +21,6 @@ func initRoutes() *httprouter.Router {
 	router.POST("/api/polls", middleware.Cors(polls.Create()))
 	router.GET("/api/polls/:id", polls.Show())
 	router.PUT("/api/polls/:id", middleware.Cors(polls.Update()))
+	router.ServeFiles("/static/*filepath", http.Dir("client/build"))
 	return router
 }
