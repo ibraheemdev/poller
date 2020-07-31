@@ -1,0 +1,8 @@
+database:
+  host: "localhost"
+  port: ":27017"
+  name: "poller_development"
+
+server:
+  host: "localhost"
+  port: ":5000"
