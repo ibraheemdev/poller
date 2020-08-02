@@ -37,10 +37,12 @@ func initRoutes(cfg interface{}) hostSwitch {
 	apiRouter.PUT("/api/polls/:id", middleware.Cors(polls.Update()))
 
 	staticRouter := httprouter.New()
-	staticRouter.ServeFiles(fmt.Sprintf("%s*filepath", config.Static.HomePage), http.Dir(config.Static.BuildPath))
+	staticRouter.ServeFiles(
+		fmt.Sprintf("%s*filepath", config.Static.HomePage),
+		http.Dir(config.Static.BuildPath))
 
 	hs := make(hostSwitch)
-	hs[config.API.Domain] = apiRouter
-	hs[config.Static.Domain] = staticRouter
+	hs[fmt.Sprintf("%s%s:%s", config.API.SubDomain, config.Host, config.Port)] = apiRouter
+	hs[fmt.Sprintf("%s%s:%s", config.Static.SubDomain, config.Host, config.Port)] = staticRouter
 	return hs
 }

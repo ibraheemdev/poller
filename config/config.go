@@ -32,12 +32,12 @@ type ServerConfig struct {
 
 // APIConfig :
 type APIConfig struct {
-	Domain string `yaml:"domain"`
+	SubDomain string `yaml:"subdomain"`
 }
 
 // StaticConfig :
 type StaticConfig struct {
-	Domain    string `yaml:"domain"`
+	SubDomain string `yaml:"subdomain"`
 	HomePage  string `yaml:"homepage"`
 	BuildPath string `yaml:"buildpath"`
 }
