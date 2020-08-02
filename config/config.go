@@ -1,13 +1,16 @@
 package config
 
 import (
-	"gopkg.in/yaml.v2"
+	"fmt"
 	"log"
 	"os"
+
+	"github.com/joho/godotenv"
+	"gopkg.in/yaml.v3"
 )
 
-// Config :
-type Config struct {
+// EnvironmentConfig :
+type EnvironmentConfig struct {
 	Server   ServerConfig   `yaml:"server"`
 	Database DatabaseConfig `yaml:"database"`
 }
@@ -40,15 +43,16 @@ type StaticConfig struct {
 }
 
 // ReadFile :
-func ReadFile() Config {
-	f, err := os.Open("config/config.yml")
+func ReadFile() EnvironmentConfig {
+	file := fmt.Sprintf("config/environments/%s.yml", GetEnv())
+	f, err := os.Open(file)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(2)
 	}
 	defer f.Close()
 
-	var cfg Config
+	var cfg EnvironmentConfig
 	decoder := yaml.NewDecoder(f)
 	err = decoder.Decode(&cfg)
 	if err != nil {
@@ -56,4 +60,13 @@ func ReadFile() Config {
 		os.Exit(2)
 	}
 	return cfg
+}
+
+// GetEnv :
+func GetEnv() string {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+	return os.Getenv("POLLER_ENV")
 }
