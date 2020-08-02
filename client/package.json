@@ -1,7 +1,6 @@
 {
   "name": "decider.client",
   "version": "0.1.0",
-  "homepage": "/static",
   "private": true,
   "dependencies": {
     "@types/node": "^14.0.27",

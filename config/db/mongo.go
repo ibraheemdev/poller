@@ -2,9 +2,11 @@ package db
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"time"
 
+	"github.com/ibraheemdev/poller/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -13,18 +15,15 @@ import (
 var DB *mongo.Database
 
 // Connect :
-func Connect(dbConfig struct {
-	Host string "yaml:\"host\""
-	Port string "yaml:\"port\""
-	Name string "yaml:\"name\""
-}) *mongo.Client {
+func Connect(cfg interface{}) *mongo.Client {
+	config := cfg.(config.DatabaseConfig)
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://"+dbConfig.Host+dbConfig.Port))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(fmt.Sprintf("mongodb://%s:%s", config.Host, config.Port)))
 	if err != nil {
 		log.Fatal(err)
 	}
-	DB = client.Database(dbConfig.Name)
+	DB = client.Database(config.Name)
 	return client
 }
 

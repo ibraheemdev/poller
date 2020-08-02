@@ -26,6 +26,7 @@ func Create() httprouter.Handle {
 			strErrors[i] = err.Error()
 		}
 		if errs != nil {
+			w.WriteHeader(http.StatusUnprocessableEntity)
 			json.NewEncoder(w).Encode(strErrors)
 			return
 		}

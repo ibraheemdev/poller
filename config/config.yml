@@ -1,8 +1,14 @@
 database:
-  host: "localhost"
-  port: ":27017"
+  host: "agilely.com"
+  port: "27017"
   name: "poller_development"
 
 server:
-  host: "localhost"
-  port: ":5000"
+  host: "agilely.com"
+  port: "5000"
+  api:
+    domain: "api.agilely.com:5000"
+  static:
+    domain: "agilely.com:5000"
+    homepage: "/"
+    buildpath: "client/build"

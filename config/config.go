@@ -8,15 +8,35 @@ import (
 
 // Config :
 type Config struct {
-	Server struct {
-		Port string `yaml:"port"`
-		Host string `yaml:"host"`
-	} `yaml:"server"`
-	Database struct {
-		Host string `yaml:"host"`
-		Port string `yaml:"port"`
-		Name string `yaml:"name"`
-	} `yaml:"database"`
+	Server   ServerConfig   `yaml:"server"`
+	Database DatabaseConfig `yaml:"database"`
+}
+
+// DatabaseConfig :
+type DatabaseConfig struct {
+	Host string `yaml:"host"`
+	Port string `yaml:"port"`
+	Name string `yaml:"name"`
+}
+
+// ServerConfig :
+type ServerConfig struct {
+	Host   string       `yaml:"host"`
+	Port   string       `yaml:"port"`
+	API    APIConfig    `yaml:"api"`
+	Static StaticConfig `yaml:"static"`
+}
+
+// APIConfig :
+type APIConfig struct {
+	Domain string `yaml:"domain"`
+}
+
+// StaticConfig :
+type StaticConfig struct {
+	Domain    string `yaml:"domain"`
+	HomePage  string `yaml:"homepage"`
+	BuildPath string `yaml:"buildpath"`
 }
 
 // ReadFile :
