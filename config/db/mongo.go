@@ -15,8 +15,7 @@ import (
 var DB *mongo.Database
 
 // Connect :
-func Connect(cfg interface{}) *mongo.Client {
-	config := cfg.(config.DatabaseConfig)
+func Connect(config config.DatabaseConfig) *mongo.Client {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(fmt.Sprintf("mongodb://%s:%s", config.Host, config.Port)))

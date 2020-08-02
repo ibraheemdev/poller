@@ -21,20 +21,18 @@ func (hs hostSwitch) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 // ListenAndServe :
-func ListenAndServe(cfg interface{}) {
-	config := cfg.(config.ServerConfig)
+func ListenAndServe(config config.ServerConfig) {
 	log.Fatal(
 		http.ListenAndServe(
 			fmt.Sprintf("%s:%s", config.Host, config.Port),
 			initRoutes(config)))
 }
 
-func initRoutes(cfg interface{}) hostSwitch {
-	config := cfg.(config.ServerConfig)
+func initRoutes(config config.ServerConfig) hostSwitch {
 	apiRouter := httprouter.New()
-	apiRouter.POST("/api/polls", middleware.Cors(polls.Create()))
-	apiRouter.GET("/api/polls/:id", polls.Show())
-	apiRouter.PUT("/api/polls/:id", middleware.Cors(polls.Update()))
+	apiRouter.POST("/polls", middleware.Cors(polls.Create()))
+	apiRouter.GET("/polls/:id", polls.Show())
+	apiRouter.PUT("/polls/:id", middleware.Cors(polls.Update()))
 
 	staticRouter := httprouter.New()
 	staticRouter.ServeFiles(
