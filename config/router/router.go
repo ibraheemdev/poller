@@ -31,7 +31,7 @@ func ListenAndServe(config config.ServerConfig) {
 func initRoutes(config config.ServerConfig) hostSwitch {
 	apiRouter := httprouter.New()
 	apiRouter.POST("/polls", middleware.Cors(polls.Create()))
-	apiRouter.GET("/polls/:id", polls.Show())
+	apiRouter.GET("/polls/:id", middleware.Cors(polls.Show()))
 	apiRouter.PUT("/polls/:id", middleware.Cors(polls.Update()))
 
 	staticRouter := httprouter.New()
