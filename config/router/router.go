@@ -2,13 +2,15 @@ package router
 
 import (
 	"fmt"
-	"github.com/ibraheemdev/poller/config"
+	cfg "github.com/ibraheemdev/poller/config"
 	"github.com/ibraheemdev/poller/config/router/middleware"
 	"github.com/ibraheemdev/poller/polls"
 	"github.com/julienschmidt/httprouter"
 	"log"
 	"net/http"
 )
+
+var config cfg.ServerConfig = cfg.Config.Server
 
 type hostSwitch map[string]http.Handler
 
@@ -21,14 +23,14 @@ func (hs hostSwitch) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 // ListenAndServe :
-func ListenAndServe(config config.ServerConfig) {
+func ListenAndServe() {
 	log.Fatal(
 		http.ListenAndServe(
 			fmt.Sprintf("%s:%s", config.Host, config.Port),
-			initRoutes(config)))
+			initRoutes()))
 }
 
-func initRoutes(config config.ServerConfig) hostSwitch {
+func initRoutes() hostSwitch {
 	apiRouter := httprouter.New()
 	apiRouter.POST("/polls", middleware.Cors(polls.Create()))
 	apiRouter.GET("/polls/:id", middleware.Cors(polls.Show()))

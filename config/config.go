@@ -9,6 +9,9 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// Config : application config stored as global variable
+var Config *EnvironmentConfig
+
 // EnvironmentConfig :
 type EnvironmentConfig struct {
 	Server   ServerConfig   `yaml:"server"`
@@ -42,9 +45,13 @@ type StaticConfig struct {
 	BuildPath string `yaml:"buildpath"`
 }
 
-// ReadFile :
-func ReadFile() EnvironmentConfig {
-	file := fmt.Sprintf("config/environments/%s.yml", GetEnv())
+func init() {
+	config := readConfig()
+	Config = &config
+}
+
+func readConfig() EnvironmentConfig {
+	file := fmt.Sprintf("config/environments/%s.yml", getEnv())
 	f, err := os.Open(file)
 	if err != nil {
 		log.Fatal(err)
@@ -62,8 +69,8 @@ func ReadFile() EnvironmentConfig {
 	return cfg
 }
 
-// GetEnv :
-func GetEnv() string {
+// getEnv : get configuration environment variable
+func getEnv() string {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
