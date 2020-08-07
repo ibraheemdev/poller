@@ -15,9 +15,7 @@ func Create() httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		poll := new(PollParams)
 		err := json.NewDecoder(r.Body).Decode(&poll)
-		if err != nil {
-			log.Print(err)
-			w.WriteHeader(http.StatusBadRequest)
+		if badReq := base.HandleBadRequest(w, err); badReq {
 			return
 		}
 		pollID, errs := createPoll(poll)
@@ -59,15 +57,11 @@ func Update() httprouter.Handle {
 		pollID := ps.ByName("id")
 		poll := new(PollParams)
 		err := json.NewDecoder(r.Body).Decode(&poll)
-		if err != nil {
-			log.Print(err)
-			w.WriteHeader(http.StatusBadRequest)
+		if badReq := base.HandleBadRequest(w, err); badReq {
 			return
 		}
 		err = updatePoll(pollID, poll)
-		if err != nil {
-			log.Print(err)
-			w.WriteHeader(http.StatusBadRequest)
+		if badReq := base.HandleBadRequest(w, err); badReq {
 			return
 		}
 	}
