@@ -5,8 +5,8 @@ import (
 	"net/http"
 )
 
-// HandleNotFound : Returns whether the error was not nil
-func HandleNotFound(w http.ResponseWriter, err error) bool {
+// HandleError : Writes the given status code header if the given error is not nil
+func HandleError(w http.ResponseWriter, err error, code int) bool {
 	if err != nil {
 		log.Print(err)
 		w.WriteHeader(http.StatusNotFound)
@@ -15,12 +15,12 @@ func HandleNotFound(w http.ResponseWriter, err error) bool {
 	return false
 }
 
-// HandleBadRequest : Returns whether the error was not nil
+// HandleNotFound :
+func HandleNotFound(w http.ResponseWriter, err error) bool {
+	return HandleError(w, err, http.StatusNotFound)
+}
+
+// HandleBadRequest :
 func HandleBadRequest(w http.ResponseWriter, err error) bool {
-	if err != nil {
-		log.Print(err)
-		w.WriteHeader(http.StatusBadRequest)
-		return true
-	}
-	return false
+	return HandleError(w, err, http.StatusBadRequest)
 }
