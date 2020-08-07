@@ -19,13 +19,9 @@ func Create() httprouter.Handle {
 			return
 		}
 		pollID, errs := createPoll(poll)
-		strErrors := make([]string, len(errs))
-		for i, err := range errs {
-			strErrors[i] = err.Error()
-		}
 		if errs != nil {
 			w.WriteHeader(http.StatusUnprocessableEntity)
-			json.NewEncoder(w).Encode(strErrors)
+			json.NewEncoder(w).Encode(errs)
 			return
 		}
 		w.WriteHeader(http.StatusCreated)

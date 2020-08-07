@@ -10,11 +10,23 @@ type Validator struct {
 	Errors []error
 }
 
+// ValidationErrors : A string of error messages
+type ValidationErrors []string
+
 // Validate :
 func (v *Validator) Validate(cond bool, msg string, args ...interface{}) {
 	if cond {
 		v.Errors = append(v.Errors, fmt.Errorf(msg, args...))
 	}
+}
+
+// Stringify : Stringifies a slice of errors
+func Stringify(errs []error) []string {
+	strErrors := make([]string, len(errs))
+	for i, err := range errs {
+		strErrors[i] = err.Error()
+	}
+	return strErrors
 }
 
 // ValidatePresenceOf : validates presence of struct string field
