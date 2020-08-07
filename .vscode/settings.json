@@ -1,0 +1,6 @@
+{
+  "go.vetFlags": ["-composites=false"],
+  "search.exclude": {
+    "vendor/**/*": true
+  }
+}
