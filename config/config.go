@@ -46,11 +46,10 @@ type StaticConfig struct {
 }
 
 func init() {
-	config := readConfig()
-	Config = &config
+	Config = readConfig()
 }
 
-func readConfig() EnvironmentConfig {
+func readConfig() *EnvironmentConfig {
 	file := fmt.Sprintf("config/environments/%s.yml", getEnv())
 	f, err := os.Open(file)
 	if err != nil {
@@ -66,7 +65,7 @@ func readConfig() EnvironmentConfig {
 		log.Fatal(err)
 		os.Exit(2)
 	}
-	return cfg
+	return &cfg
 }
 
 // getEnv : get configuration environment variable
