@@ -6,7 +6,6 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ibraheemdev/poller/base"
 	"github.com/julienschmidt/httprouter"
 )
 
@@ -39,7 +38,7 @@ func Create() httprouter.Handle {
 func Show() httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		poll := &Poll{}
-		err := base.Find(ps.ByName("id"), poll)
+		err := poll.Collection().Find(ps.ByName("id"), poll)
 		if err != nil {
 			log.Print(err)
 			w.WriteHeader(http.StatusNotFound)

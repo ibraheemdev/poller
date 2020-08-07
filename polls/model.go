@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	"github.com/ibraheemdev/poller/base"
 	"github.com/ibraheemdev/poller/config/db"
 	"github.com/ibraheemdev/poller/validator"
 	"go.mongodb.org/mongo-driver/bson"
@@ -14,9 +15,15 @@ import (
 
 // Poll Document
 type Poll struct {
-	ID       primitive.ObjectID `json:"_id" bson:"_id,omitempty"`
-	Title    string             `json:"title" bson:"title"`
-	Password uuid.UUID          `json:"password" bson:"password"`
+	ID         primitive.ObjectID `json:"_id" bson:"_id,omitempty"`
+	Title      string             `json:"title" bson:"title"`
+	Password   uuid.UUID          `json:"password" bson:"password"`
+	base.Model `json:"-"`
+}
+
+// Collection : The poll collection
+func (p Poll) Collection() base.ModelCollection {
+	return base.ModelCollection{db.DB.Collection("polls")}
 }
 
 // PollParams : Valid poll params
