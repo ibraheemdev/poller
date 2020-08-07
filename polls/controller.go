@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/ibraheemdev/poller/base"
 	"github.com/julienschmidt/httprouter"
 )
 
@@ -37,21 +38,16 @@ func Create() httprouter.Handle {
 // Show : GET "/polls/:id"
 func Show() httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-		poll := &Poll{}
+		poll := new(Poll)
 		err := poll.Collection().Find(ps.ByName("id"), poll)
-		if err != nil {
-			log.Print(err)
-			w.WriteHeader(http.StatusNotFound)
+		if nf := base.HandleNotFound(w, err); nf {
 			return
 		}
 		json, err := json.Marshal(poll)
-		if err != nil {
-			log.Print(err)
-			w.WriteHeader(http.StatusBadRequest)
+		if badReq := base.HandleBadRequest(w, err); badReq {
 			return
 		}
-		_, err = w.Write(json)
-		if err != nil {
+		if _, err = w.Write(json); err != nil {
 			log.Fatal(err)
 		}
 	}
