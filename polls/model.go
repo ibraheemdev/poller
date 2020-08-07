@@ -24,10 +24,6 @@ type PollParams struct {
 	Title string `json:"title" bson:"title"`
 }
 
-type pollable interface {
-	Title() string
-}
-
 func validate(poll *PollParams) []error {
 	v := &validator.Validator{}
 	v.ValidatePresenceOf("Title", poll.Title)
@@ -56,23 +52,10 @@ func createPoll(poll *PollParams) (string, []error) {
 	return id, nil
 }
 
-func getPoll(pollID primitive.ObjectID) (*Poll, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
-	poll := &Poll{}
-	filter := bson.D{{"_id", pollID}}
-	err := db.DB.Collection("polls").FindOne(ctx, filter).Decode(&poll)
-	if err != nil {
-		log.Println(err)
-		return nil, err
-	}
-	return poll, nil
-}
-
 func updatePoll(id string, poll *PollParams) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-	filter := bson.D{primitive.E{Key: "_id", Value: id}}
+	filter := bson.D{{"_id", id}}
 	update := bson.D{{"$set", bson.D{{"title", poll.Title}}}}
 	_, err := db.DB.Collection("polls").UpdateOne(ctx, filter, update)
 	if err != nil {

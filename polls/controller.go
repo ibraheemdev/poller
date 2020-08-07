@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/ibraheemdev/poller/base"
 	"github.com/julienschmidt/httprouter"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 // Create : POST "/polls"
@@ -38,24 +38,20 @@ func Create() httprouter.Handle {
 // Show : GET "/polls/:id"
 func Show() httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-		id, err := primitive.ObjectIDFromHex(ps.ByName("id"))
+		poll := &Poll{}
+		err := base.Find(ps.ByName("id"), poll)
 		if err != nil {
 			log.Print(err)
-			w.WriteHeader(http.StatusBadRequest)
-			return
-		}
-		poll, err := getPoll(id)
-		if err != nil {
 			w.WriteHeader(http.StatusNotFound)
 			return
 		}
-		j, err := json.Marshal(poll)
+		json, err := json.Marshal(poll)
 		if err != nil {
 			log.Print(err)
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-		_, err = w.Write(j)
+		_, err = w.Write(json)
 		if err != nil {
 			log.Fatal(err)
 		}
