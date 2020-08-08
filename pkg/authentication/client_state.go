@@ -20,15 +20,6 @@ const (
 	// SessionLastAction is the session key to retrieve the
 	// last action of a user.
 	SessionLastAction = "last_action"
-	// Session2FA is set when a user has been authenticated with a second factor
-	Session2FA = "twofactor"
-	// Session2FAAuthToken is a random token set in the session to be verified
-	// by e-mail.
-	Session2FAAuthToken = "twofactor_auth_token"
-	// Session2FAAuthed is in the session (and set to "true") when the user
-	// has successfully verified the token sent via e-mail in the two factor
-	// e-mail authentication process.
-	Session2FAAuthed = "twofactor_authed"
 
 	// CookieRemember is used for cookies and form input names.
 	CookieRemember = "rm"
@@ -257,13 +248,6 @@ func (c *ClientStateResponseWriter) putClientState() error {
 func IsFullyAuthed(r *http.Request) bool {
 	_, hasHalfAuth := GetSession(r, SessionHalfAuthKey)
 	return !hasHalfAuth
-}
-
-// IsTwoFactored returns false if the user doesn't have a Session2FA
-// in his session.
-func IsTwoFactored(r *http.Request) bool {
-	_, has2fa := GetSession(r, Session2FA)
-	return has2fa
 }
 
 // DelAllSession deletes all variables in the session except for those on
