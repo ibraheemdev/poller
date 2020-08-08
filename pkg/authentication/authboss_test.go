@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"log"
 )
 
 func TestAuthBossInit(t *testing.T) {
@@ -244,6 +246,9 @@ func TestAuthbossMiddleware(t *testing.T) {
 		}
 
 		rec, called, hadUser := setupMore(false, false, true, true)
+		log.Println(rec)
+		log.Println(called)
+		log.Println(hadUser)
 
 		if rec.Code != http.StatusNotFound {
 			t.Error("wrong code:", rec.Code)

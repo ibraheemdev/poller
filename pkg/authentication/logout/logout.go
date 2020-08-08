@@ -1,4 +1,4 @@
-// Package logout allows users to log out (from auth or oauth2 logins)
+// Package logout allows users to log out (from auth logins)
 package logout
 
 import (

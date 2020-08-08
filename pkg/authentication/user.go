@@ -2,7 +2,6 @@ package authboss
 
 import (
 	"fmt"
-	"strings"
 	"time"
 )
 
@@ -85,29 +84,6 @@ type ArbitraryUser interface {
 	PutArbitrary(arbitrary map[string]string)
 }
 
-// OAuth2User allows reading and writing values relating to OAuth2
-// Also see MakeOAuthPID/ParseOAuthPID for helpers to fullfill the User
-// part of the interface.
-type OAuth2User interface {
-	User
-
-	// IsOAuth2User checks to see if a user was registered in the site as an
-	// oauth2 user.
-	IsOAuth2User() bool
-
-	GetOAuth2UID() (uid string)
-	GetOAuth2Provider() (provider string)
-	GetOAuth2AccessToken() (token string)
-	GetOAuth2RefreshToken() (refreshToken string)
-	GetOAuth2Expiry() (expiry time.Time)
-
-	PutOAuth2UID(uid string)
-	PutOAuth2Provider(provider string)
-	PutOAuth2AccessToken(token string)
-	PutOAuth2RefreshToken(refreshToken string)
-	PutOAuth2Expiry(expiry time.Time)
-}
-
 // MustBeAuthable forces an upgrade to an AuthableUser or panic.
 func MustBeAuthable(u User) AuthableUser {
 	if au, ok := u.(AuthableUser); ok {
@@ -138,45 +114,4 @@ func MustBeRecoverable(u User) RecoverableUser {
 		return lu
 	}
 	panic(fmt.Sprintf("could not upgrade user to a recoverable user, given type: %T", u))
-}
-
-// MustBeOAuthable forces an upgrade to an OAuth2User or panic.
-func MustBeOAuthable(u User) OAuth2User {
-	if ou, ok := u.(OAuth2User); ok {
-		return ou
-	}
-	panic(fmt.Sprintf("could not upgrade user to an oauthable user, given type: %T", u))
-}
-
-// MakeOAuth2PID is used to create a pid for users that don't have
-// an e-mail address or username in the normal system. This allows
-// all the modules to continue to working as intended without having
-// a true primary id. As well as not having to divide the regular and oauth
-// stuff all down the middle.
-func MakeOAuth2PID(provider, uid string) string {
-	return fmt.Sprintf("oauth2;;%s;;%s", provider, uid)
-}
-
-// ParseOAuth2PID returns the uid and provider for a given OAuth2 pid
-func ParseOAuth2PID(pid string) (provider, uid string, err error) {
-	splits := strings.Split(pid, ";;")
-	if len(splits) != 3 {
-		return "", "", fmt.Errorf("failed to parse oauth2 pid, too many segments: %s", pid)
-	}
-	if splits[0] != "oauth2" {
-		return "", "", fmt.Errorf("invalid oauth2 pid, did not start with oauth2: %s", pid)
-	}
-
-	return splits[1], splits[2], nil
-}
-
-// ParseOAuth2PIDP returns the uid and provider for a given OAuth2 pid
-func ParseOAuth2PIDP(pid string) (provider, uid string) {
-	var err error
-	provider, uid, err = ParseOAuth2PID(pid)
-	if err != nil {
-		panic(err)
-	}
-
-	return provider, uid
 }

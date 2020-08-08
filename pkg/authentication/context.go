@@ -22,7 +22,7 @@ const (
 
 	// CTXKeyValues is to pass the data submitted from API request or form
 	// along in the context in case modules need it. The only module that needs
-	// user information currently is remember so only auth/oauth2 are currently
+	// user information currently is remember so only auth are currently
 	// going to use this.
 	CTXKeyValues contextKey = "values"
 )

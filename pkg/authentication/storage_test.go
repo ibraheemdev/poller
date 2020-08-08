@@ -28,7 +28,6 @@ func TestStorageAssertions(t *testing.T) {
 		EnsureCanConfirm(s)
 		EnsureCanRecover(s)
 		EnsureCanRemember(s)
-		EnsureCanOAuth2(s)
 	}()
 
 	if paniced {
@@ -56,9 +55,6 @@ func TestStorageAssertions(t *testing.T) {
 		t.Error("should have panic'd")
 	}
 	if !didPanic(func() { EnsureCanRemember(fs) }) {
-		t.Error("should have panic'd")
-	}
-	if !didPanic(func() { EnsureCanOAuth2(fs) }) {
 		t.Error("should have panic'd")
 	}
 }

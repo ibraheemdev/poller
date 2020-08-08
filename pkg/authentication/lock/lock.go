@@ -30,7 +30,6 @@ func (l *Lock) Init(ab *authboss.Authboss) error {
 	l.Authboss = ab
 
 	l.Events.Before(authboss.EventAuth, l.BeforeAuth)
-	l.Events.Before(authboss.EventOAuth2, l.BeforeAuth)
 	l.Events.After(authboss.EventAuth, l.AfterAuthSuccess)
 	l.Events.After(authboss.EventAuthFail, l.AfterAuthFail)
 

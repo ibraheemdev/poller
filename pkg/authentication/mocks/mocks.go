@@ -29,12 +29,6 @@ type User struct {
 	LastAttempt        time.Time
 	Locked             time.Time
 
-	OAuth2UID      string
-	OAuth2Provider string
-	OAuth2Token    string
-	OAuth2Refresh  string
-	OAuth2Expiry   time.Time
-
 	OTPs           string
 	TOTPSecretKey  string
 	SMSPhoneNumber string
@@ -83,24 +77,6 @@ func (u User) GetLastAttempt() time.Time { return u.LastAttempt }
 
 // GetLocked from user
 func (u User) GetLocked() time.Time { return u.Locked }
-
-// IsOAuth2User returns true if the user is an oauth2 user
-func (u User) IsOAuth2User() bool { return len(u.OAuth2Provider) != 0 }
-
-// GetOAuth2UID from user
-func (u User) GetOAuth2UID() string { return u.OAuth2UID }
-
-// GetOAuth2Provider from user
-func (u User) GetOAuth2Provider() string { return u.OAuth2Provider }
-
-// GetOAuth2AccessToken from user
-func (u User) GetOAuth2AccessToken() string { return u.OAuth2Token }
-
-// GetOAuth2RefreshToken from user
-func (u User) GetOAuth2RefreshToken() string { return u.OAuth2Refresh }
-
-// GetOAuth2Expiry from user
-func (u User) GetOAuth2Expiry() time.Time { return u.OAuth2Expiry }
 
 // GetArbitrary from user
 func (u User) GetArbitrary() map[string]string { return u.Arbitrary }
@@ -160,21 +136,6 @@ func (u *User) PutLastAttempt(attemptTime time.Time) { u.LastAttempt = attemptTi
 
 // PutLocked into user
 func (u *User) PutLocked(locked time.Time) { u.Locked = locked }
-
-// PutOAuth2UID into user
-func (u *User) PutOAuth2UID(uid string) { u.OAuth2UID = uid }
-
-// PutOAuth2Provider into user
-func (u *User) PutOAuth2Provider(provider string) { u.OAuth2Provider = provider }
-
-// PutOAuth2AccessToken into user
-func (u *User) PutOAuth2AccessToken(token string) { u.OAuth2Token = token }
-
-// PutOAuth2RefreshToken into user
-func (u *User) PutOAuth2RefreshToken(refresh string) { u.OAuth2Refresh = refresh }
-
-// PutOAuth2Expiry into user
-func (u *User) PutOAuth2Expiry(expiry time.Time) { u.OAuth2Expiry = expiry }
 
 // PutArbitrary into user
 func (u *User) PutArbitrary(arb map[string]string) { u.Arbitrary = arb }
@@ -237,39 +198,6 @@ func (s *ServerStorer) Save(ctx context.Context, user authboss.User) error {
 		return authboss.ErrUserNotFound
 	}
 	s.Users[u.Email] = u
-	return nil
-}
-
-// NewFromOAuth2 finds a user with the given details, or returns a new one
-func (s *ServerStorer) NewFromOAuth2(ctx context.Context, provider string, details map[string]string) (authboss.OAuth2User, error) {
-	uid := details["uid"]
-	email := details["email"]
-	name := details["name"]
-	pid := authboss.MakeOAuth2PID(provider, uid)
-
-	u, ok := s.Users[pid]
-	if ok {
-		u.Username = name
-		u.Email = email
-		return u, nil
-	}
-
-	return &User{
-		OAuth2UID:      uid,
-		OAuth2Provider: provider,
-		Email:          email,
-		Username:       name,
-	}, nil
-}
-
-// SaveOAuth2 creates a user if not found, or updates one that exists.
-func (s *ServerStorer) SaveOAuth2(ctx context.Context, user authboss.OAuth2User) error {
-	u := user.(*User)
-
-	pid := authboss.MakeOAuth2PID(u.OAuth2Provider, u.OAuth2UID)
-	// Since we don't have to differentiate between
-	// insert/update in a map, we just overwrite
-	s.Users[pid] = u
 	return nil
 }
 

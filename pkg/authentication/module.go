@@ -91,11 +91,6 @@ func (a *Authboss) loadModule(name string) error {
 // the indication of wether or not the module is loaded.
 // Data looks like:
 // map[modulename] = true
-//
-// oauth2 providers are also listed here using the syntax:
-// oauth2.google for an example. Be careful since this doesn't actually mean
-// that the oauth2 module has been loaded so you should do a conditional
-// that checks for both.
 func ModuleListMiddleware(ab *Authboss) func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

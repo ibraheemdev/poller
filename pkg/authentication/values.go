@@ -64,7 +64,7 @@ type RecoverEndValuer interface {
 	GetToken() string
 }
 
-// RememberValuer allows auth/oauth2 to pass along the remember
+// RememberValuer allows auth to pass along the remember
 // bool from the user to the remember module unobtrusively.
 type RememberValuer interface {
 	// Intentionally omitting validator

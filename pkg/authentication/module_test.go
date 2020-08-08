@@ -73,7 +73,6 @@ func TestModuleLoadedMiddleware(t *testing.T) {
 	ab.loadedModules = map[string]Moduler{
 		"recover": nil,
 		"auth":    nil,
-		"oauth2":  nil,
 	}
 
 	var mods map[string]bool
@@ -84,8 +83,8 @@ func TestModuleLoadedMiddleware(t *testing.T) {
 
 	server.ServeHTTP(nil, httptest.NewRequest("GET", "/", nil))
 
-	if len(mods) != 3 {
-		t.Error("want 3 modules, got:", len(mods))
+	if len(mods) != 2 {
+		t.Error("want 2 modules, got:", len(mods))
 	}
 
 	if _, ok := mods["auth"]; !ok {

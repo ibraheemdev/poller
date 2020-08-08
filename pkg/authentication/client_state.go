@@ -29,11 +29,6 @@ const (
 	// has successfully verified the token sent via e-mail in the two factor
 	// e-mail authentication process.
 	Session2FAAuthed = "twofactor_authed"
-	// SessionOAuth2State is the xsrf protection key for oauth.
-	SessionOAuth2State = "oauth2_state"
-	// SessionOAuth2Params is the additional settings for oauth
-	// like redirection/remember.
-	SessionOAuth2Params = "oauth2_params"
 
 	// CookieRemember is used for cookies and form input names.
 	CookieRemember = "rm"

@@ -24,12 +24,6 @@ type mockUser struct {
 	LastAttempt  time.Time
 	Locked       time.Time
 
-	OAuth2UID      string
-	OAuth2Provider string
-	OAuth2Token    string
-	OAuth2Refresh  string
-	OAuth2Expiry   time.Time
-
 	Arbitrary map[string]string
 }
 
@@ -91,16 +85,12 @@ func (m *mockServerStorer) UseRememberToken(ctx context.Context, pid, token stri
 // This section of functions was purely for test coverage
 func (m *mockServerStorer) New(ctx context.Context) User                { panic("not impl") }
 func (m *mockServerStorer) Create(ctx context.Context, user User) error { panic("not impl") }
-func (m *mockServerStorer) NewFromOAuth2(ctx context.Context, provider string, details map[string]string) (OAuth2User, error) {
-	panic("not impl")
-}
 func (m *mockServerStorer) LoadByConfirmSelector(ctx context.Context, selector string) (ConfirmableUser, error) {
 	panic("not impl")
 }
 func (m *mockServerStorer) LoadByRecoverSelector(ctx context.Context, selector string) (RecoverableUser, error) {
 	panic("not impl")
 }
-func (m *mockServerStorer) SaveOAuth2(ctx context.Context, user OAuth2User) error { panic("not impl") }
 
 func (m mockUser) GetPID() string                             { return m.Email }
 func (m mockUser) GetEmail() string                           { return m.Email }
@@ -115,12 +105,6 @@ func (m mockUser) GetConfirmed() bool                         { return m.Confirm
 func (m mockUser) GetAttemptCount() int                       { return m.AttemptCount }
 func (m mockUser) GetLastAttempt() time.Time                  { return m.LastAttempt }
 func (m mockUser) GetLocked() time.Time                       { return m.Locked }
-func (m mockUser) IsOAuth2User() bool                         { return len(m.OAuth2Provider) != 0 }
-func (m mockUser) GetOAuth2UID() string                       { return m.OAuth2UID }
-func (m mockUser) GetOAuth2Provider() string                  { return m.OAuth2Provider }
-func (m mockUser) GetOAuth2AccessToken() string               { return m.OAuth2Token }
-func (m mockUser) GetOAuth2RefreshToken() string              { return m.OAuth2Refresh }
-func (m mockUser) GetOAuth2Expiry() time.Time                 { return m.OAuth2Expiry }
 func (m mockUser) GetArbitrary() map[string]string            { return m.Arbitrary }
 func (m *mockUser) PutPID(email string)                       { m.Email = email }
 func (m *mockUser) PutUsername(username string)               { m.Username = username }
@@ -135,11 +119,6 @@ func (m *mockUser) PutConfirmed(confirmed bool)               { m.Confirmed = co
 func (m *mockUser) PutAttemptCount(attemptCount int)          { m.AttemptCount = attemptCount }
 func (m *mockUser) PutLastAttempt(attemptTime time.Time)      { m.LastAttempt = attemptTime }
 func (m *mockUser) PutLocked(locked time.Time)                { m.Locked = locked }
-func (m *mockUser) PutOAuth2UID(uid string)                   { m.OAuth2UID = uid }
-func (m *mockUser) PutOAuth2Provider(provider string)         { m.OAuth2Provider = provider }
-func (m *mockUser) PutOAuth2AccessToken(token string)         { m.OAuth2Token = token }
-func (m *mockUser) PutOAuth2RefreshToken(refresh string)      { m.OAuth2Refresh = refresh }
-func (m *mockUser) PutOAuth2Expiry(expiry time.Time)          { m.OAuth2Expiry = expiry }
 func (m *mockUser) PutArbitrary(arb map[string]string)        { m.Arbitrary = arb }
 
 type mockClientStateReadWriter struct {
