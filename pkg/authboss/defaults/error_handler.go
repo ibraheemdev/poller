@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 // ErrorHandler wraps http handlers with errors with itself

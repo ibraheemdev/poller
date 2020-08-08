@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"regexp"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 // FormValue types

@@ -5,8 +5,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
-	"github.com/ibraheemdev/poller/pkg/authentication/mocks"
+	"github.com/ibraheemdev/poller/pkg/authboss"
+	"github.com/ibraheemdev/poller/pkg/authboss/mocks"
 )
 
 func TestAuthInit(t *testing.T) {

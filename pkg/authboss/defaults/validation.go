@@ -3,7 +3,7 @@ package defaults
 import (
 	"fmt"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 // HTTPFormValidator validates HTTP post type inputs

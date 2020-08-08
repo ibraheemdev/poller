@@ -7,7 +7,7 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 const (

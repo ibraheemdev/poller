@@ -15,7 +15,7 @@ import (
 	"path"
 	"time"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 	"golang.org/x/crypto/bcrypt"
 )
 

@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 var nowTime = time.Now

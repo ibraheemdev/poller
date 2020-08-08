@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"sort"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 	"golang.org/x/crypto/bcrypt"
 )
 

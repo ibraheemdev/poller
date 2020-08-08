@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 func TestMailer(t *testing.T) {

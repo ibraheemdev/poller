@@ -9,7 +9,7 @@ import (
 	"net/smtp"
 	"testing"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 var (

@@ -3,7 +3,7 @@ package defaults
 import (
 	"testing"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 func TestValidate(t *testing.T) {

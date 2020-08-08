@@ -11,7 +11,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 const (

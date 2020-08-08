@@ -13,7 +13,7 @@ import (
 	"net/url"
 	"path"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 const (

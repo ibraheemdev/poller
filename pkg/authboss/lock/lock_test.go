@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
-	"github.com/ibraheemdev/poller/pkg/authentication/mocks"
+	"github.com/ibraheemdev/poller/pkg/authboss"
+	"github.com/ibraheemdev/poller/pkg/authboss/mocks"
 )
 
 func TestInit(t *testing.T) {

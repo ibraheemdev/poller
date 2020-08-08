@@ -10,7 +10,7 @@ package defaults
 import (
 	"os"
 
-	"github.com/ibraheemdev/poller/pkg/authentication"
+	"github.com/ibraheemdev/poller/pkg/authboss"
 )
 
 // SetCore creates instances of all the default pieces
