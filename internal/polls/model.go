@@ -2,11 +2,11 @@ package polls
 
 import (
 	"context"
+	"go.mongodb.org/mongo-driver/mongo"
 	"log"
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/ibraheemdev/poller/pkg/base"
 	"github.com/ibraheemdev/poller/pkg/database"
 	"github.com/ibraheemdev/poller/pkg/validator"
 	"go.mongodb.org/mongo-driver/bson"
@@ -15,15 +15,14 @@ import (
 
 // Poll Document
 type Poll struct {
-	ID         primitive.ObjectID `json:"_id" bson:"_id,omitempty"`
-	Title      string             `json:"title" bson:"title"`
-	Password   uuid.UUID          `json:"password" bson:"password"`
-	base.Model `json:"-"`
+	ID       primitive.ObjectID `json:"_id" bson:"_id,omitempty"`
+	Title    string             `json:"title" bson:"title"`
+	Password uuid.UUID          `json:"password" bson:"password"`
 }
 
 // Collection : The poll collection
-func (p Poll) Collection() base.ModelCollection {
-	return base.ModelCollection{database.Client.Collection("polls")}
+func (p Poll) Collection() *mongo.Collection {
+	return database.Client.Collection("polls")
 }
 
 // PollParams : Valid poll params
