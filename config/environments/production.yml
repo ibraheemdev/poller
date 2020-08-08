@@ -11,4 +11,4 @@ server:
   static:
     domain: "agilely.com:5000"
     homepage: "/"
-    buildpath: "client/build"
+    buildpath: "web/build"

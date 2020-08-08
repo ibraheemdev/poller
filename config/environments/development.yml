@@ -11,4 +11,4 @@ server:
   static:
     subdomain: ""
     homepage: "/"
-    buildpath: "client/build"
+    buildpath: "web/build"

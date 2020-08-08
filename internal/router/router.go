@@ -2,12 +2,13 @@ package router
 
 import (
 	"fmt"
-	cfg "github.com/ibraheemdev/poller/config"
-	"github.com/ibraheemdev/poller/config/router/middleware"
-	"github.com/ibraheemdev/poller/polls"
-	"github.com/julienschmidt/httprouter"
 	"log"
 	"net/http"
+
+	cfg "github.com/ibraheemdev/poller/config"
+	"github.com/ibraheemdev/poller/internal/polls"
+	"github.com/ibraheemdev/poller/pkg/middleware"
+	"github.com/julienschmidt/httprouter"
 )
 
 var config cfg.ServerConfig = cfg.Config.Server

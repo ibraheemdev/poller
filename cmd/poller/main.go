@@ -2,12 +2,12 @@ package main
 
 import (
 	_ "github.com/ibraheemdev/poller/config"
-	"github.com/ibraheemdev/poller/config/db"
-	"github.com/ibraheemdev/poller/config/router"
+	"github.com/ibraheemdev/poller/internal/router"
+	"github.com/ibraheemdev/poller/pkg/database"
 )
 
 func main() {
-	client := db.Connect()
-	defer db.Disconnect(client)
+	client := database.Connect()
+	defer database.Disconnect(client)
 	router.ListenAndServe()
 }

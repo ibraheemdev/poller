@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ibraheemdev/poller/base"
+	"github.com/ibraheemdev/poller/pkg/base"
 	"github.com/julienschmidt/httprouter"
 )
 

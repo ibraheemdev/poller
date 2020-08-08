@@ -1,4 +1,4 @@
-package db
+package database
 
 import (
 	"context"
@@ -11,10 +11,11 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-var config cfg.DatabaseConfig = cfg.Config.Database
-
-// DB :
-var DB *mongo.Database
+var (
+	config cfg.DatabaseConfig = cfg.Config.Database
+	// Client : A pointer to the database client
+	Client *mongo.Database
+)
 
 // Connect :
 func Connect() *mongo.Client {
@@ -24,7 +25,7 @@ func Connect() *mongo.Client {
 	if err != nil {
 		log.Fatal(err)
 	}
-	DB = client.Database(config.Name)
+	Client = client.Database(config.Name)
 	return client
 }
 
