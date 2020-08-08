@@ -1,0 +1,138 @@
+Date : 2020-08-08 09:55:19
+Directory : /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication
+Total : 94 files,  12678 codes, 1303 comments, 3416 blanks, all 17397 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Go       |         88 |     11,644 |      1,301 |      3,082 |     16,027 |
+| Markdown |          3 |        985 |          2 |        325 |      1,312 |
+| YAML     |          2 |         40 |          0 |          6 |         46 |
+| XML      |          1 |          9 |          0 |          3 |         12 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                     | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                        |         94 |     12,678 |      1,303 |      3,416 |     17,397 |
+| .github                                                                                                  |          1 |         24 |          0 |          5 |         29 |
+| .github/workflows                                                                                        |          1 |         24 |          0 |          5 |         29 |
+| auth                                                                                                     |          2 |        389 |         11 |         98 |        498 |
+| confirm                                                                                                  |          2 |        565 |         34 |        150 |        749 |
+| defaults                                                                                                 |         22 |      1,688 |        126 |        403 |      2,217 |
+| expire                                                                                                   |          2 |        235 |         18 |         58 |        311 |
+| lock                                                                                                     |          2 |        385 |         22 |        106 |        513 |
+| logout                                                                                                   |          2 |        174 |          6 |         45 |        225 |
+| mocks                                                                                                    |          1 |        461 |        129 |        157 |        747 |
+| oauth2                                                                                                   |          4 |        626 |         69 |        151 |        846 |
+| otp                                                                                                      |         13 |      3,129 |        159 |        839 |      4,127 |
+| otp/twofactor                                                                                            |         11 |      2,405 |        129 |        645 |      3,179 |
+| otp/twofactor/sms2fa                                                                                     |          3 |        830 |         49 |        218 |      1,097 |
+| otp/twofactor/totp2fa                                                                                    |          3 |        799 |         36 |        217 |      1,052 |
+| recover                                                                                                  |          2 |        621 |         21 |        154 |        796 |
+| register                                                                                                 |          2 |        365 |         16 |         92 |        473 |
+| remember                                                                                                 |          2 |        396 |         21 |        119 |        536 |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                 | language | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/.github/workflows/test.yaml             | YAML     |         24 |          0 |          5 |         29 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/CHANGELOG.md                            | Markdown |        222 |          0 |         95 |        317 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/README.md                               | Markdown |        708 |          2 |        209 |        919 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/auth/auth.go                            | Go       |         93 |          9 |         26 |        128 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/auth/auth_test.go                       | Go       |        296 |          2 |         72 |        370 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/authboss.go                             | Go       |        135 |         59 |         32 |        226 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/authboss_test.go                        | Go       |        217 |          0 |         42 |        259 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/circle.yml                              | YAML     |         16 |          0 |          1 |         17 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/client_state.go                         | Go       |        246 |         91 |         56 |        393 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/client_state_test.go                    | Go       |        164 |          1 |         51 |        216 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/config.go                               | Go       |         90 |        144 |         43 |        277 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/confirm/confirm.go                      | Go       |        232 |         31 |         56 |        319 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/confirm/confirm_test.go                 | Go       |        333 |          3 |         94 |        430 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/context.go                              | Go       |        106 |         28 |         29 |        163 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/context_test.go                         | Go       |        188 |          1 |         62 |        251 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/defaults.go                    | Go       |         15 |         10 |          5 |         30 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/defaults_test.go               | Go       |         34 |          0 |          6 |         40 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/error_handler.go               | Go       |         29 |          8 |          9 |         46 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/error_handler_test.go          | Go       |         22 |          1 |          9 |         32 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/log_mailer.go                  | Go       |         30 |          4 |         10 |         44 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/log_mailer_test.go             | Go       |         53 |          0 |         14 |         67 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/logger.go                      | Go       |         18 |          6 |          6 |         30 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/logger_test.go                 | Go       |         18 |          0 |          6 |         24 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/renderer.go                    | Go       |         40 |          6 |         13 |         59 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/renderer_test.go               | Go       |         34 |          0 |          9 |         43 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/responder.go                   | Go       |        101 |         13 |         26 |        140 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/responder_test.go              | Go       |        199 |          0 |         54 |        253 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/router.go                      | Go       |         46 |          9 |         11 |         66 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/router_test.go                 | Go       |         69 |          0 |         15 |         84 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/rules.go                       | Go       |        168 |          8 |         27 |        203 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/rules_test.go                  | Go       |        155 |          0 |         17 |        172 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/smtp_mailer.go                 | Go       |        101 |         12 |         25 |        138 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/smtp_mailer_test.go            | Go       |         71 |          0 |         22 |         93 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/validation.go                  | Go       |         50 |          9 |         17 |         76 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/validation_test.go             | Go       |         73 |          0 |         15 |         88 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/values.go                      | Go       |        245 |         40 |         55 |        340 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/defaults/values_test.go                 | Go       |        117 |          0 |         32 |        149 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/errors.go                               | Go       |          7 |          2 |          3 |         12 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/events.go                               | Go       |         59 |         31 |         15 |        105 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/events_test.go                          | Go       |        125 |          0 |         26 |        151 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/expire/expire.go                        | Go       |         90 |         16 |         25 |        131 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/expire/expire_test.go                   | Go       |        145 |          2 |         33 |        180 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/go.mod                                  | XML      |          9 |          0 |          3 |         12 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/html_data.go                            | Go       |         56 |         36 |         16 |        108 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/html_data_test.go                       | Go       |         67 |          0 |         17 |         84 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/lock/lock.go                            | Go       |        121 |         22 |         32 |        175 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/lock/lock_test.go                       | Go       |        264 |          0 |         74 |        338 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/logger.go                               | Go       |         43 |         16 |         13 |         72 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/logger_test.go                          | Go       |         52 |          0 |         15 |         67 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/logout/logout.go                        | Go       |         59 |          4 |         15 |         78 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/logout/logout_test.go                   | Go       |        115 |          2 |         30 |        147 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/mailer.go                               | Go       |         16 |          5 |          5 |         26 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/mocks/mocks.go                          | Go       |        461 |        129 |        157 |        747 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/mocks_test.go                           | Go       |        178 |          1 |         37 |        216 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/module.go                               | Go       |         82 |         26 |         19 |        127 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/module_test.go                          | Go       |         84 |          2 |         21 |        107 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/oauth2.go                               | Go       |         11 |         17 |          4 |         32 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/oauth2/oauth2.go                        | Go       |        199 |         58 |         49 |        306 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/oauth2/oauth2_test.go                   | Go       |        298 |          3 |         74 |        375 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/oauth2/providers.go                     | Go       |         69 |          6 |         16 |         91 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/oauth2/providers_test.go                | Go       |         60 |          2 |         12 |         74 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/otp.go                              | Go       |        227 |         22 |         61 |        310 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/otp_test.go                         | Go       |        497 |          8 |        133 |        638 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/sms2fa/sms.go             | Go       |        373 |         34 |         89 |        496 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/sms2fa/sms_payloads.go    | Go       |         26 |          6 |         11 |         43 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/sms2fa/sms_test.go        | Go       |        431 |          9 |        118 |        558 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/totp2fa/totp.go           | Go       |        335 |         24 |         81 |        440 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/totp2fa/totp_payloads.go  | Go       |         16 |          3 |          7 |         26 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/totp2fa/totp_test.go      | Go       |        448 |          9 |        129 |        586 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/twofactor.go              | Go       |         33 |          8 |         10 |         51 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/twofactor_recover.go      | Go       |        122 |         14 |         28 |        164 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/twofactor_recover_test.go | Go       |        192 |          0 |         54 |        246 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/twofactor_verify.go       | Go       |        181 |         21 |         42 |        244 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/otp/twofactor/twofactor_verify_test.go  | Go       |        248 |          1 |         76 |        325 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/recover/recover.go                      | Go       |        232 |         18 |         59 |        309 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/recover/recover_test.go                 | Go       |        389 |          3 |         95 |        487 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/register/register.go                    | Go       |        113 |         12 |         29 |        154 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/register/register_test.go               | Go       |        252 |          4 |         63 |        319 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/remember/remember.go                    | Go       |        127 |         19 |         33 |        179 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/remember/remember_test.go               | Go       |        269 |          2 |         86 |        357 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/renderer.go                             | Go       |          6 |          3 |          4 |         13 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/response.go                             | Go       |         51 |         30 |         13 |         94 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/response_test.go                        | Go       |         33 |          0 |         11 |         44 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/router.go                               | Go       |         10 |          1 |          4 |         15 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/storage.go                              | Go       |         73 |         73 |         28 |        174 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/storage_test.go                         | Go       |         53 |          0 |         12 |         65 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/stringers.go                            | Go       |         10 |          1 |          6 |         17 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/tov2.md                                 | Markdown |         55 |          0 |         21 |         76 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/user.go                                 | Go       |        117 |         37 |         31 |        185 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/user_test.go                            | Go       |         89 |          0 |         23 |        112 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/validation.go                           | Go       |         45 |         13 |         11 |         69 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/validation_test.go                      | Go       |         74 |          0 |         19 |         93 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/values.go                               | Go       |         67 |         51 |         27 |        145 |
+| /Users/afamily/Ibraheem/dev/opensource/poller/pkg/authentication/values_test.go                          | Go       |         56 |          0 |         15 |         71 |
+| Total                                                                                                    |          |     12,678 |      1,303 |      3,416 |     17,397 |
++----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
