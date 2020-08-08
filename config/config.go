@@ -70,7 +70,7 @@ func readConfig() *EnvironmentConfig {
 
 // getEnv : get configuration environment variable
 func getEnv() string {
-	err := godotenv.Load()
+	err := godotenv.Load("config/.env")
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
