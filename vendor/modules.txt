@@ -16,9 +16,6 @@ github.com/aws/aws-sdk-go/internal/strings
 github.com/aws/aws-sdk-go/internal/sync/singleflight
 github.com/aws/aws-sdk-go/private/protocol
 github.com/aws/aws-sdk-go/private/protocol/rest
-# github.com/friendsofgo/errors v0.9.2
-## explicit
-github.com/friendsofgo/errors
 # github.com/go-stack/stack v1.8.0
 github.com/go-stack/stack
 # github.com/golang/snappy v0.0.1
@@ -92,9 +89,6 @@ golang.org/x/sync/semaphore
 # golang.org/x/text v0.3.3
 golang.org/x/text/transform
 golang.org/x/text/unicode/norm
-# golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7
-golang.org/x/xerrors
-golang.org/x/xerrors/internal
 # gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
 ## explicit
 gopkg.in/yaml.v3

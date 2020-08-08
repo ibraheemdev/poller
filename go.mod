@@ -3,7 +3,6 @@ module github.com/ibraheemdev/poller
 go 1.14
 
 require (
-	github.com/friendsofgo/errors v0.9.2
 	github.com/google/uuid v1.1.1
 	github.com/joho/godotenv v1.3.0
 	github.com/julienschmidt/httprouter v1.3.0
