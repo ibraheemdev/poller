@@ -1,5 +1,6 @@
 {{ define "base" }}
     <!DOCTYPE html>
+    {{ safe "<!-- Application Layout -->" }}
     <html>
         <head>
             <title>Poller</title>
