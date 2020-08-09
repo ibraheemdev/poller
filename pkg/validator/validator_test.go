@@ -7,7 +7,7 @@ import (
 
 func TestValidate(t *testing.T) {
 	v := &Validator{}
-	v.Validate(true == true, "true shouldn't equal true")
+	v.Validate(true == false, "true should equal true")
 	if v.Errors == nil {
 		t.Error("expected validation error")
 	}
