@@ -15,14 +15,18 @@ import (
 var mainTmpl = `{{define "main" }} {{ template "base" . }} {{ end }}`
 
 type templateRenderer struct {
-	templates map[string]*template.Template
+	// url mount path
 	mountPath string
+
+	templates map[string]*template.Template
 }
 
 // NewTemplateRenderer creates a new setup to render layout based go templates
 func newTemplateRenderer(mountPath string, layoutsDir string, templatesDir string) *templateRenderer {
-	r := &templateRenderer{}
-	r.templates = make(map[string]*template.Template)
+	r := &templateRenderer{
+		templates: make(map[string]*template.Template),
+		mountPath: mountPath,
+	}
 	r.Load(layoutsDir, templatesDir)
 	return r
 }
