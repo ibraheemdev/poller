@@ -144,4 +144,10 @@ func TestEventString(t *testing.T) {
 			t.Errorf("%d) Wrong string for Event(%d) expected: %v got: %s", i, test.ev, test.str, got)
 		}
 	}
+
+	// This test is only for 100% test coverage of stringers.go
+	var testEvent Event = -1
+	if got := testEvent.String(); got != "Event(-1)" {
+		t.Errorf("Wrong string for Event(%d) expected: \"\", got: %s", testEvent, got)
+	}
 }
