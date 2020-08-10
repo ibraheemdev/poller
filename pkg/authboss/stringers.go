@@ -4,6 +4,21 @@ package authboss
 
 import "strconv"
 
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[EventRegister-0]
+	_ = x[EventAuth-1]
+	_ = x[EventAuthFail-2]
+	_ = x[EventRecoverStart-3]
+	_ = x[EventRecoverEnd-4]
+	_ = x[EventGetUser-5]
+	_ = x[EventGetUserSession-6]
+	_ = x[EventPasswordReset-7]
+	_ = x[EventLogout-8]
+}
+
 const _Event_name = "EventRegisterEventAuthEventAuthFailEventRecoverStartEventRecoverEndEventGetUserEventGetUserSessionEventPasswordResetEventLogout"
 
 var _Event_index = [...]uint8{0, 13, 22, 35, 52, 67, 79, 98, 116, 127}
