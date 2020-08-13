@@ -34,7 +34,6 @@ These are the implementations of how storage on the server and the client are do
 application. There are implementations for the CookieStore and the SessionStore, but not the ServerStorer. The ServerStorer must be manually implemented depending on which database your app uses. For a sample in memory server store, you can run the user model generator:
 
 Note: This command **will overwrite the file** if it already exists:
-
 ```bash
 $ authboss generate:user ./user.go
 ```
