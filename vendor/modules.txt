@@ -1,3 +1,5 @@
+# cloud.google.com/go v0.34.0
+cloud.google.com/go/compute/metadata
 # github.com/aws/aws-sdk-go v1.29.15
 github.com/aws/aws-sdk-go/aws
 github.com/aws/aws-sdk-go/aws/awserr
@@ -18,26 +20,19 @@ github.com/aws/aws-sdk-go/private/protocol
 github.com/aws/aws-sdk-go/private/protocol/rest
 # github.com/go-stack/stack v1.8.0
 github.com/go-stack/stack
-# github.com/golang/protobuf v1.3.1
+# github.com/golang/protobuf v1.2.0
 github.com/golang/protobuf/proto
 # github.com/golang/snappy v0.0.1
 github.com/golang/snappy
 # github.com/google/uuid v1.1.1
 ## explicit
 github.com/google/uuid
-# github.com/ibraheemdev/authboss v0.0.0-20200810174005-9b68924123d8
+# github.com/gorilla/securecookie v1.1.1
 ## explicit
-github.com/ibraheemdev/authboss/pkg/authboss
-github.com/ibraheemdev/authboss/pkg/authboss/defaults
-github.com/ibraheemdev/authboss/pkg/authenticatable
-github.com/ibraheemdev/authboss/pkg/confirmable
-github.com/ibraheemdev/authboss/pkg/lockable
-github.com/ibraheemdev/authboss/pkg/logoutable
-github.com/ibraheemdev/authboss/pkg/oauthable
-github.com/ibraheemdev/authboss/pkg/recoverable
-github.com/ibraheemdev/authboss/pkg/registerable
-github.com/ibraheemdev/authboss/pkg/rememberable
-github.com/ibraheemdev/authboss/pkg/timeoutable
+github.com/gorilla/securecookie
+# github.com/gorilla/sessions v1.2.0
+## explicit
+github.com/gorilla/sessions
 # github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
 github.com/jmespath/go-jmespath
 # github.com/joho/godotenv v1.3.0
@@ -92,54 +87,13 @@ go.mongodb.org/mongo-driver/x/mongo/driver/session
 go.mongodb.org/mongo-driver/x/mongo/driver/topology
 go.mongodb.org/mongo-driver/x/mongo/driver/uuid
 go.mongodb.org/mongo-driver/x/mongo/driver/wiremessage
-# cloud.google.com/go v0.34.0
-cloud.google.com/go/compute/metadata
-# github.com/golang/protobuf v1.3.1
-github.com/golang/protobuf/proto
-# github.com/gorilla/securecookie v1.1.1
-## explicit
-github.com/gorilla/securecookie
-# github.com/gorilla/sessions v1.2.0
-## explicit
-github.com/gorilla/sessions
-# github.com/inconshreveable/mousetrap v1.0.0
-github.com/inconshreveable/mousetrap
-# github.com/spf13/cobra v1.0.0
-## explicit
-github.com/spf13/cobra
-# github.com/spf13/pflag v1.0.3
-github.com/spf13/pflag
 # golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
 ## explicit
 golang.org/x/crypto/bcrypt
 golang.org/x/crypto/blowfish
 golang.org/x/crypto/ocsp
 golang.org/x/crypto/pbkdf2
-# golang.org/x/net v0.0.0-20200707034311-ab3426394381
-golang.org/x/net/context
-golang.org/x/net/context/ctxhttp
-# golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
-golang.org/x/oauth2
-golang.org/x/oauth2/internal
-# golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e
-golang.org/x/sync/errgroup
-golang.org/x/sync/semaphore
-# golang.org/x/text v0.3.3
-golang.org/x/text/transform
-golang.org/x/text/unicode/norm
-# google.golang.org/appengine v1.4.0
-google.golang.org/appengine/internal
-google.golang.org/appengine/internal/base
-google.golang.org/appengine/internal/datastore
-google.golang.org/appengine/internal/log
-google.golang.org/appengine/internal/remote_api
-google.golang.org/appengine/internal/urlfetch
-google.golang.org/appengine/urlfetch
-# gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
-## explicit
-gopkg.in/yaml.v3
-# golang.org/x/net v0.0.0-20200707034311-ab3426394381
-## explicit
+# golang.org/x/net v0.0.0-20200202094626-16171245cfb2
 golang.org/x/net/context
 golang.org/x/net/context/ctxhttp
 # golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
@@ -150,6 +104,12 @@ golang.org/x/oauth2/google
 golang.org/x/oauth2/internal
 golang.org/x/oauth2/jws
 golang.org/x/oauth2/jwt
+# golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e
+golang.org/x/sync/errgroup
+golang.org/x/sync/semaphore
+# golang.org/x/text v0.3.3
+golang.org/x/text/transform
+golang.org/x/text/unicode/norm
 # google.golang.org/appengine v1.4.0
 google.golang.org/appengine
 google.golang.org/appengine/internal
@@ -161,3 +121,6 @@ google.golang.org/appengine/internal/modules
 google.golang.org/appengine/internal/remote_api
 google.golang.org/appengine/internal/urlfetch
 google.golang.org/appengine/urlfetch
+# gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
+## explicit
+gopkg.in/yaml.v3

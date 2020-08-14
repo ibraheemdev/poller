@@ -8,7 +8,7 @@ import (
 	"path"
 	"path/filepath"
 
-	"github.com/ibraheemdev/authboss/pkg/authboss"
+	"github.com/ibraheemdev/poller/pkg/authboss/authboss"
 )
 
 var mainTmpl = `{{define "main" }} {{ template "base" . }} {{ end }}`
