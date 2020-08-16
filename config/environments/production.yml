@@ -7,8 +7,9 @@ server:
   host: "agilely.com"
   port: "5000"
   api:
-    domain: "api.agilely.com:5000"
+    subdomain: "api."
   static:
-    domain: "agilely.com:5000"
+    subdomain: ""
     homepage: "/"
     buildpath: "web/build"
+    manifestpath: "web/build/asset-manifest.json"

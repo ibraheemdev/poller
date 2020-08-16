@@ -12,3 +12,4 @@ server:
     subdomain: ""
     homepage: "/"
     buildpath: "web/build"
+    manifestpath: "web/build/asset-manifest.json"
