@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	"gopkg.in/yaml.v3"
 )
 
@@ -40,17 +39,19 @@ type APIConfig struct {
 
 // StaticConfig :
 type StaticConfig struct {
-	SubDomain string `yaml:"subdomain"`
-	HomePage  string `yaml:"homepage"`
-	BuildPath string `yaml:"buildpath"`
+	SubDomain    string `yaml:"subdomain"`
+	HomePage     string `yaml:"homepage"`
+	BuildPath    string `yaml:"buildpath"`
+	ManifestPath string `yaml:"manifestpath"`
 }
 
-func init() {
+// Init :
+func Init() {
 	Config = readConfig()
 }
 
 func readConfig() *EnvironmentConfig {
-	file := fmt.Sprintf("config/environments/%s.yml", getEnv())
+	file := fmt.Sprintf("config/environments/%s.yml", os.Getenv("POLLER_ENV"))
 	f, err := os.Open(file)
 	if err != nil {
 		log.Fatal(err)
@@ -66,13 +67,4 @@ func readConfig() *EnvironmentConfig {
 		os.Exit(2)
 	}
 	return &cfg
-}
-
-// getEnv : get configuration environment variable
-func getEnv() string {
-	err := godotenv.Load("config/.env")
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-	return os.Getenv("POLLER_ENV")
 }

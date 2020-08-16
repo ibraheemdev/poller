@@ -6,13 +6,12 @@ import (
 	"log"
 	"time"
 
-	cfg "github.com/ibraheemdev/poller/config"
+	"github.com/ibraheemdev/poller/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 var (
-	config cfg.DatabaseConfig = cfg.Config.Database
 	// Client : A pointer to the database client
 	Client *mongo.Database
 )
@@ -21,11 +20,11 @@ var (
 func Connect() *mongo.Client {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(fmt.Sprintf("mongodb://%s:%s", config.Host, config.Port)))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(fmt.Sprintf("mongodb://%s:%s", config.Config.Database.Host, config.Config.Database.Port)))
 	if err != nil {
 		log.Fatal(err)
 	}
-	Client = client.Database(config.Name)
+	Client = client.Database(config.Config.Database.Name)
 	return client
 }
 
